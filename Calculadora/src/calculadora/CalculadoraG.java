@@ -15,8 +15,12 @@ public class CalculadoraG extends javax.swing.JFrame {
 
     Calculadora2 miCalculadora2 = new Calculadora2();
     
+               
     
     public CalculadoraG() {
+        
+        
+        
       
     }
 
@@ -61,6 +65,11 @@ public class CalculadoraG extends javax.swing.JFrame {
         });
 
         Multiplicacion.setText("*");
+        Multiplicacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MultiplicacionMouseClicked(evt);
+            }
+        });
         Multiplicacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MultiplicacionActionPerformed(evt);
@@ -68,6 +77,11 @@ public class CalculadoraG extends javax.swing.JFrame {
         });
 
         Division.setText("/");
+        Division.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DivisionMouseClicked(evt);
+            }
+        });
         Division.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DivisionActionPerformed(evt);
@@ -175,6 +189,20 @@ public class CalculadoraG extends javax.swing.JFrame {
         miCalculadora2.resta();
         MostrarResultado.setText(String.valueOf(miCalculadora2.getResult()));// TODO add your handling code here:
     }//GEN-LAST:event_RestaMouseClicked
+
+    private void MultiplicacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MultiplicacionMouseClicked
+        miCalculadora2.setNumero1(Float.valueOf(IngresoN1.getText()));
+        miCalculadora2.setNumero1(Float.valueOf(IngresoN2.getText()));
+        miCalculadora2.multiplicacion();
+        MostrarResultado.setText(String.valueOf(miCalculadora2.getResult()));// TODO add your handling code here:
+    }//GEN-LAST:event_MultiplicacionMouseClicked
+
+    private void DivisionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DivisionMouseClicked
+        miCalculadora2.setNumero1(Float.valueOf(IngresoN1.getText()));
+        miCalculadora2.setNumero1(Float.valueOf(IngresoN2.getText()));
+        miCalculadora2.division();
+        MostrarResultado.setText(String.valueOf(miCalculadora2.getResult()));// TODO add your handling code here:
+    }//GEN-LAST:event_DivisionMouseClicked
 
     /**
      * @param args the command line arguments
